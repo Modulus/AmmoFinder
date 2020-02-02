@@ -1,0 +1,6 @@
+pvas
+2alpha
+osloskytesenter
+skittjakt
+jaktdepotet
+wingevåpen

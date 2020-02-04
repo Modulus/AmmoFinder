@@ -37,7 +37,7 @@ class PvasScraper(object):
 
 
                 product = Product(
-                    cat = PvasScraper.generate_category(compounded_url), 
+                    cat = Category.extract(compounded_url), 
                     img_url = f"{root_url}{image_link}",
                     price = price_string,
                     name = name,
@@ -45,21 +45,7 @@ class PvasScraper(object):
                     )
 
           
-                print(product)
                 elements.append(product)
 
         return elements
 
-
-    @staticmethod
-    def generate_category(url):
-        if "rifle" in url:
-            return Category.RIFLE
-        elif "hagle" in url:
-            return Category.SHOTGUN
-        elif "haandvaapen" in url or "handvapen" in url:
-            return Category.HANDGUN
-        elif "rimfire" in url:
-            return Category.RIMFIRE
-        else:
-            raise ValueError("Category incorrect!")         

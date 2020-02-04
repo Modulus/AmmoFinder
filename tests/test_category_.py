@@ -7,7 +7,7 @@ from core.category import Category
 def test_generate_category_rifle():
     url = "/produkter/ammunisjon/rifle"
 
-    result = PvasScraper.generate_category(url)
+    result = Category.extract(url)
 
     assert result != None
     assert result == Category.RIFLE
@@ -15,7 +15,8 @@ def test_generate_category_rifle():
 def test_generate_category_shotgun():
     url =  "/produkter/ammunisjon/hagle"
 
-    result = PvasScraper.generate_category(url)
+    result = Category.extract(url)
+
 
     assert result != None
     assert result == Category.SHOTGUN        
@@ -23,7 +24,8 @@ def test_generate_category_shotgun():
 def test_generate_category_shotgun():
     url =  "/produkter/ammunisjon/haandvaapen"
 
-    result = PvasScraper.generate_category(url)
+    result = Category.extract(url)
+
 
     assert result != None
     assert result == Category.HANDGUN            
@@ -31,10 +33,18 @@ def test_generate_category_shotgun():
 def test_generate_category_rimfire():
     url = "/produkter/ammunisjon/rimfire"    
 
-    result = PvasScraper.generate_category(url)
+    result = Category.extract(url)
 
     assert result != None
     assert result == Category.RIMFIRE      
+
+def test_generate_category_pistol_returns_correct_category():
+    url = "https://www.2alfa.no/ammunisjon/ladet-ammo/pistol.hml"
+
+    result = Category.extract(url)
+
+    assert result != None
+    assert result == Category.HANDGUN 
 
 def test_genrate_category_has_incorrect_value_raises_value_error():
     with pytest.raises(ValueError):

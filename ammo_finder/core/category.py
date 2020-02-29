@@ -1,11 +1,11 @@
 from enum import Enum
 
+
 class Category(Enum):
     RIFLE = 1
     HANDGUN = 2
     RIMFIRE = 3
     SHOTGUN = 4
-
 
     @staticmethod
     def extract(url):
@@ -18,4 +18,4 @@ class Category(Enum):
         elif "rimfire" in url:
             return Category.RIMFIRE
         else:
-            raise ValueError("Category incorrect!")         
+            raise ValueError("Category incorrect!")

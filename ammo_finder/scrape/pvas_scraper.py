@@ -1,16 +1,16 @@
 from bs4 import BeautifulSoup
 import requests
 
-from core.category import Category
-from core.product import Product
+from ammo_finder.core.category import Category
+from ammo_finder.core.product import Product
 
 
 root_url = "https://www.pvas.no"
 urls = ["/produkter/ammunisjon/rifle", "/produkter/ammunisjon/hagle", "/produkter/ammunisjon/haandvaapen", "/produkter/ammunisjon/rimfire"]
 
+
 class PvasScraper(object):
 
-   
     def fetch(self):
         elements = []
         for url in urls:
@@ -21,8 +21,6 @@ class PvasScraper(object):
             soup = BeautifulSoup(response.content, "html.parser")
 
             data = soup.find_all("div", class_="ProdItem")
-
-
 
             for container in data:
                 # print(container)
@@ -35,17 +33,14 @@ class PvasScraper(object):
                 price_string = container.find("span", class_="Price").text
                 # print(price_string)
 
-
                 product = Product(
-                    cat = Category.extract(compounded_url), 
+                    cat = Category.extract(compounded_url),
                     img_url = f"{root_url}{image_link}",
                     price = price_string,
                     name = name,
-                    details_url = details_url
+                    details_url = details_url,
                     )
 
-          
                 elements.append(product)
 
         return elements
-

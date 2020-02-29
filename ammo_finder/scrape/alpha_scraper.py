@@ -1,10 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-from core.category import Category
-from core.product import Product
-
-
+from ammo_finder.core.category import Category
+from ammo_finder.core.product import Product
 
 
 class AlphaScraper(object):
@@ -12,7 +10,6 @@ class AlphaScraper(object):
     def __init__(self):
         self.root_url = "https://www.2alfa.no/ammunisjon/ladet-ammo"
         self.urls = ["/rifle.html", "/pistol.html"]
-
 
     def fetch(self):
         elements = []
@@ -47,10 +44,10 @@ class AlphaScraper(object):
                     img_url = image_url,
                     price = price_str,
                     name = name,
-                    details_url = details_url
+                    details_url = details_url,
                 )
                 elements.append(product)
-        return elements                
+        return elements
 
 
 

@@ -1,6 +1,8 @@
+# Non-standard library python package imports
 from bs4 import BeautifulSoup
 import requests
 
+# Internal module package imports
 from ammo_finder.core.category import Category
 from ammo_finder.core.product import Product
 

@@ -5,7 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+pipenv-setup = "*"
 
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
+bs4 = "*"

@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-from core.category import Category
-from core.product import Product
+from ammo_finder.core.category import Category
+from ammo_finder.core.product import Product
 
 
 class OsloskytesenterScraper(object):

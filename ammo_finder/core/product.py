@@ -1,5 +1,6 @@
-from core.category import Category
+from ammo_finder.core.category import Category
 import json
+
 
 class Product(object):
     def __init__(self, cat, img_url, name, details_url, price):
@@ -9,22 +10,20 @@ class Product(object):
         self.details_url = details_url
         self.price = price
 
-
     def get_dict(self):
         return {
             "category" : str(self.category),
             "img_url" : self.img_url,
             "name" : self.name,
             "details_url" : self.details_url,
-            "price" : self.price
-
+            "price": self.price,
         }
 
     def __repr__(self):
         return str(json.dumps(self.get_dict()))
 
     def __str__(self):
-        return  str(json.dumps(self.get_dict()))
+        return str(json.dumps(self.get_dict()))
 
     # def __str__(self):
-    #     return f"Category: {self.category}"        
+    #     return f"Category: {self.category}"

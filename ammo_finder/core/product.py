@@ -1,5 +1,8 @@
-from ammo_finder.core.category import Category
+# Python standard library imports
 import json
+
+# Internal module package imports
+from ammo_finder.core.category import Category
 
 
 class Product(object):

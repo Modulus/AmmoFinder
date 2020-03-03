@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.7
 
+# Python standard library imports
 from pathlib import Path
 
 # Non-standard library python package imports
@@ -10,7 +11,6 @@ from setuptools import (  # type: ignore
 
 # Internal module package imports
 from ammo_finder import version
-
 
 readme_md_file = Path(__file__).parent / 'README.md'
 

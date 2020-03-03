@@ -12,6 +12,7 @@ from setuptools import (  # type: ignore
 # Internal module package imports
 from ammo_finder import version
 
+
 readme_md_file = Path(__file__).parent / 'README.md'
 
 setup(

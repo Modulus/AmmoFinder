@@ -19,7 +19,9 @@ install: Pipfile Pipfile.lock $(python_files)
 .PHONY: test
 test: $(git_files)
 	$(MAKE) install
-	pipenv run pytest
+	pipenv run pytest \
+		--cov-report term \
+		--cov-report html
 
 
 .PHONY: run_linting
@@ -34,3 +36,7 @@ sort_imports: setup.cfg $(python_files)
 	--virtual-env $(shell pipenv --venv) \
 	--project $(PYTHON_SRC_FOLDER) \
 	.
+
+.PHONY: clean
+clean:
+	rm -rf .pytest_cache *.egg-info

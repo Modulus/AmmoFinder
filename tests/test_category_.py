@@ -21,10 +21,21 @@ def test_generate_category_shotgun():
     assert result == Category.SHOTGUN
 
 
-def test_generate_category_handgun():
-    result = Category.extract(
-        "/produkter/ammunisjon/haandvaapen"
-    )
+@pytest.mark.parametrize(
+    'url_string',
+    [
+        pytest.param(
+            '/produkter/ammunisjon/haandvaapen',
+            id='Unknown URL string',
+        ),
+        pytest.param(
+            'https://www.2alfa.no/ammunisjon/ladet-ammo/pistol.html',
+            id='2alfa.no pistol ammo',
+        ),
+    ]
+)
+def test_generate_category_handgun(url_string: str) -> None:
+    result = Category.extract(url_string)
     assert result == Category.HANDGUN
 
 
@@ -33,13 +44,6 @@ def test_generate_category_rimfire():
         "/produkter/ammunisjon/rimfire"
     )
     assert result == Category.RIMFIRE
-
-
-def test_generate_category_pistol_returns_correct_category():
-    result = Category.extract(
-        "https://www.2alfa.no/ammunisjon/ladet-ammo/pistol.hml"
-    )
-    assert result == Category.HANDGUN
 
 
 def test_genrate_category_has_incorrect_value_raises_value_error():

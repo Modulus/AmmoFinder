@@ -6,6 +6,7 @@ import requests
 from ammo_finder.core.category import Category
 from ammo_finder.core.product import Product
 
+
 root_url = "https://www.pvas.no"
 urls = ["/produkter/ammunisjon/rifle", "/produkter/ammunisjon/hagle", "/produkter/ammunisjon/haandvaapen", "/produkter/ammunisjon/rimfire"]
 

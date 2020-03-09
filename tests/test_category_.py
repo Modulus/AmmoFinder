@@ -53,10 +53,8 @@ def test_genrate_category_has_incorrect_value_raises_value_error():
 
 def test_fetch_has_data():
     scraper = PvasScraper()
+    results = scraper.fetch()
 
-    result = scraper.fetch()
-
-    assert result is not None
-    assert len(result) > 10
-    for x in result:
-        print(str(x))
+    assert len(results) > 10
+    # for x in result:
+    #     print(str(x))

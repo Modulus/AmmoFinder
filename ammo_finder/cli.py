@@ -6,19 +6,18 @@ from ammo_finder.scrape.pvas_scraper import PvasScraper
 
 
 def main():
-    pvas = PvasScraper()
+    pvas_scraper = PvasScraper()
+    pvas_results = pvas_scraper.fetch()
 
-    result = pvas.fetch()
+    # for el in pvas_results:
+    #     print(el)
 
-    for el in result:
-        print(el)
-
-    print(f"Found {len(result)} ammo types from pvas.no")
+    print(f"Found {len(pvas_results)} ammo types from pvas.no")
 
     alpha = AlphaScraper()
+    alpha_results = alpha.fetch()
 
-    result = alpha.fetch()
-    for el in result:
-        print(el)
+    # for el in alpha_results:
+    #     print(el)
 
-    print(f"Found {len(result)} ammo types from 2alpha.no")
+    print(f"Found {len(alpha_results)} ammo types from 2alpha.no")

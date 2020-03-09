@@ -47,8 +47,8 @@ def fetch_pvas_ammo_by_weapon_category(
     Collate a list all ammunition subproducts found within the scraped results
     of a weapon category's ammunition products `f"{root_url}/{category_url_context_path}"`.
     """
-    print(f"Fetching data @ {compounded_url}", file=stderr)
     compounded_url = f"{root_url}/{category_url_context_path}"
+    print(f"Fetching data @ {compounded_url}", file=stderr)
     response = requests.get(compounded_url)
 
     soup = BeautifulSoup(response.content, "html.parser")

@@ -36,7 +36,5 @@ setup(
         "urllib3==1.25.8",
     ],
     entry_points="""
-        [console_scripts]
-        ammo_finder=ammo_finder.cli:main
     """,
 )

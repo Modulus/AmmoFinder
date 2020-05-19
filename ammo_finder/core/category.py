@@ -16,7 +16,7 @@ class Category(Enum):
             return Category.SHOTGUN
         elif "haandvaapen" in url or "handvapen" in url or "pistol" in url:
             return Category.HANDGUN
-        elif "rimfire" in url:
+        elif "rimfire" in url or "22lr" in url or "salong" in url:
             return Category.RIMFIRE
         else:
             raise ValueError("Category incorrect!")

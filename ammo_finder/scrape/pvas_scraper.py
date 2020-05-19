@@ -20,8 +20,6 @@ PRODUCT_CONTEXT_PATHS = (
 )
 
 
-class PvasProduct(Product):
-    pass
 
 
 class PvasScraper(object):
@@ -42,7 +40,7 @@ def fetch_pvas_ammo_by_weapon_category(
     category_url_context_path: str,
     *,
     root_url: str=PVAS_ROOT_URL,
-) -> typing.List[PvasProduct]:
+) -> typing.List[Product]:
     """
     Collate a list all ammunition subproducts found within the scraped results
     of a weapon category's ammunition products `f"{root_url}/{category_url_context_path}"`.
@@ -67,7 +65,7 @@ def get_ammunition_specific_data_from_html(
     category: Category,
     *,
     root_url: str=PVAS_ROOT_URL,
-) -> typing.List[PvasProduct]:
+) -> typing.List[Product]:
     result_list = list()
     for container in html:
         image_link = container.find("img")["src"]
@@ -76,7 +74,7 @@ def get_ammunition_specific_data_from_html(
         price_string = container.find("span", class_="Price").text
 
         result_list.append(
-            PvasProduct(
+            Product(
                 cat=category,
                 img_url=f"{root_url}{image_link}",
                 price=price_string,

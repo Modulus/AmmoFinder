@@ -7,6 +7,7 @@ class Category(Enum):
     HANDGUN = 2
     RIMFIRE = 3
     SHOTGUN = 4
+    AIR = 5
 
     @staticmethod
     def extract(url):
@@ -18,5 +19,7 @@ class Category(Enum):
             return Category.HANDGUN
         elif "rimfire" in url or "22lr" in url or "salong" in url:
             return Category.RIMFIRE
+        elif "air" in url or "luft" in url or "luftvapen" in url:
+            return Category.AIR
         else:
             raise ValueError("Category incorrect!")

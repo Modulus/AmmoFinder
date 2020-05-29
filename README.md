@@ -4,8 +4,8 @@
 Lage skraping av disse sidene:
 pvas <<-- Done
 2alpha <<-- Done
-osloskytesenter
-skittjakt
+osloskytesenter <<--Done
+skittjakt <<--DOne
 jaktdepotet
 wingevåpen
 

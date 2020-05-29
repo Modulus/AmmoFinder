@@ -6,12 +6,13 @@ from ammo_finder.core.category import Category
 
 
 class Product(object):
-    def __init__(self, cat, img_url, name, details_url, price):
+    def __init__(self, cat, img_url, name, details_url, price, currency="NOK"):
         self.category: Category = cat
         self.img_url = img_url
         self.name = name
         self.details_url = details_url
         self.price = price
+        self.currency = currency
 
     def get_dict(self):
         return dict(

@@ -33,7 +33,7 @@ setup(
         "idna==2.9",
         "requests==2.23.0",
         "soupsieve==2.0",
-        "urllib3==1.25.8",
+        "urllib3==1.26.5",
     ],
     entry_points="""
     """,
